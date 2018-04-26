@@ -72,7 +72,7 @@ while i == 0:
             elif g == 1:
                 h = str(input("Adicionar ou alterar preço a qual produto: "))
                 n = float(input("Preço: "))
-                estoque[h]["preço"]=n
+                estoque[h]["preco"]=n
             else:
                 print("Comando não existente")
         
@@ -83,7 +83,6 @@ while i == 0:
 original = json.dumps(estoque, sort_keys=True)
 with open ("dados.json","w") as arquivo:
     arquivo.write (original)
-final= str(original)
-print(final)
+
 
 
