@@ -22,6 +22,9 @@ while i == 0:
     print ("2 - remover item")
     print ("3 - alterar item")
     print ("4 - imprimir estoque")
+    print ("5 - controle dos preços")
+    print ("6 - produtos em falta")
+    print ("7 - valor monetário do estoque")
     a = int(input("Faça sua escolha: "))
     if a == 0:
         print ("Até mais")
@@ -37,6 +40,7 @@ while i == 0:
                 c = int(input("Quantidade inicial: "))
             else:
                 estoque[b] = {"quantidade":c}
+
     elif a == 2:
         d = str(input("Nome do produto: "))
         if d in estoque:
@@ -51,12 +55,27 @@ while i == 0:
             f = int(input("Quantidade: "))
             for l in estoque:
                 for m in estoque[l]:
-                    estoque[l][m] += f
-            print ("Novo estoque de {0}: {1}".format(e, estoque[l][m]))
+                    estoque[l]["quantidade"] += f
+            print ("Novo estoque de {0}: {1}".format(e, estoque[l]["quantidade"]))
     elif a == 4:
         for k in estoque:
-            for j in estoque[k]:
-                print ("{0}: {1}".format(k, estoque[k][j]))
+            print ("{0}: {1}".format(k, estoque[k]["quantidade"]))
+    elif a == 5:
+        o = 0
+        while o == 0:
+            print ("0 - voltar")
+            print ("1 - manusear preço")
+            g = int(input("Faça sua escolha: "))
+            if g == 0:
+                o+=1
+            elif g == 1:
+                h = str(input("Adicionar ou alterar preço a qual produto: "))
+                n = float(input("Preço: "))
+                estoque[h]["preço"]=n
+            else:
+                print("Comando não existente")
+        
+        
     else:
         print ("Comando não existente")
         
