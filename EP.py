@@ -9,7 +9,7 @@ Created on Wed Apr 25 07:36:47 2018
 estoque = {}
 i = 0
 while i == 0:
-    print ("Controle de estoque")
+    print ("\nControle de estoque")
     print ("0 - sair")
     print ("1 - adicionar item")
     print ("2 - remover item")
@@ -52,3 +52,4 @@ while i == 0:
                 print ("{0}: {1}".format(k, estoque[k][j]))
     else:
         print ("Comando não existente")
+1
