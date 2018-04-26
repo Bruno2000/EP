@@ -5,6 +5,13 @@ Created on Wed Apr 25 07:36:47 2018
 
 @author: rbalkins
 """
+import json
+import os.path
+from pprint import pprint 
+
+if os.path.exists ("dados.json") == False:
+    with open("dados.json", "w") as arquivo:
+        arquivo.write ("{}")
 
 estoque = {}
 i = 0
@@ -52,4 +59,10 @@ while i == 0:
                 print ("{0}: {1}".format(k, estoque[k][j]))
     else:
         print ("Comando não existente")
-1
+        
+dicionario= json.loads (estoque)
+pprint(dicionario)
+original = json.dumps(dicionario, sort_keys= True, indent= 4)
+print (original)
+
+
