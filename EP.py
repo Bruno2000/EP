@@ -15,6 +15,7 @@ with open("dados.json", "r") as arquivo:
     estoque = json.loads(arquivo.read())
     
 
+estoque = {}
 i = 0
 while i == 0:
     print ("\nControle de estoque")
@@ -55,8 +56,7 @@ while i == 0:
         else:
             f = int(input("Quantidade: "))
             for l in estoque:
-                for m in estoque[l]:
-                    estoque[l]["quantidade"] += f
+                estoque[l]["quantidade"] += f
             print ("Novo estoque de {0}: {1}".format(e, estoque[l]["quantidade"]))
     elif a == 4:
         for k in estoque:
@@ -72,18 +72,32 @@ while i == 0:
             elif g == 1:
                 h = str(input("Adicionar ou alterar preço a qual produto: "))
                 n = float(input("Preço: "))
-                estoque[h]["preço"]=n
+                estoque[h]["preco"]=n
             else:
                 print("Comando não existente")
-        
-        
+    elif a == 6:
+        lista_faltas = []
+        lista_sem_faltas = []
+        for r in estoque:
+            if estoque[r]["quantidade"] <= 0:
+                print(r)
+            else:
+                lista_sem_faltas+=estoque[r]
+    elif a == 7:
+        valor_monetario = 0
+        for t in estoque:
+            valor_monetario+=estoque[t]["preco"]*estoque[t]["quantidade"]
+        print ("O valor monetário total do estoque é de {0}".format(valor_monetario))
+            
     else:
         print ("Comando não existente")
+
+        
+        
 
 original = json.dumps(estoque, sort_keys=True)
 with open ("dados.json","w") as arquivo:
     arquivo.write (original)
-final= str(original)
-print(final)
+
 
 
